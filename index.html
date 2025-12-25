@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>{{.Judul}}</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css">
+</head>
+<body>
+    <header>
+        <h1>{{.Judul}}</h1>
+    </header>
+
+    <section>
+        <form method="POST">
+            <label>Nama:</label>
+            <input type="text" name="nama" required>
+            <label>Pesan:</label>
+            <textarea name="pesan" required></textarea>
+            <button type="submit">Kirim Pesan 🚀</button>
+        </form>
+    </section>
+
+    <hr>
+
+    <section>
+        <h2>Daftar Pesan Terbaru</h2>
+        {{range .Daftar}}
+            <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; border-radius: 8px;">
+                <strong>{{.Nama}}</strong> berkata:
+                <p>{{.Isi}}</p>
+            </div>
+        {{else}}
+            <p>Belum ada pesan. Jadi yang pertama!</p>
+        {{end}}
+    </section>
+</body>
+</html>
